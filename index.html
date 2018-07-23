@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.1/dist/eosjs-ecc.js" integrity="sha384-0vOv8bNQY80IlmvhbjGzNr1yy9C9ZBhR+1FuJEH6D1JU0ERbZmaEjGHFF/9k+pTl" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+        <!--
+            sha512-HCSw4GhpVw/3DS2n9Hdq7hVAw3nheZzYddAJsKEK7wk57LsfnI9oNHHNHzG+e+BWqWKxKPCM+XMxBTV+TE2QYw== lib/eosjs-ecc.js
+            sha512-5esVQ4sQT8XLWek5KUEIQbFfxu2EZdet8DNDkIdchp4Y1e0b+xkMozwUdFii5bJa3Zk/vgr1ZP235Uf9ULCrkA== lib/eosjs-ecc.min.js
+            sha512-ui5uBolbOxJDpdWZ8f9aoMxF3RqY9KOZC6eOhTg+V2IT4tO8FzagpCPCOja1wFrcn9Nw7oX4pFqmeUynv+4aHw== lib/eosjs-ecc.min.js.map
+            -->
+        <script src="https://cdn.jsdelivr.net/npm/eosjs-ecc@4.0.2/lib/eosjs-ecc.min.js"
+            integrity="sha512-5esVQ4sQT8XLWek5KUEIQbFfxu2EZdet8DNDkIdchp4Y1e0b+xkMozwUdFii5bJa3Zk/vgr1ZP235Uf9ULCrkA=="
+            crossorigin="anonymous"></script>
         <script>
-			function genkey() {
-			    eosjs_ecc.randomKey().then(x => {
-			        var private_key = x;
-			        var public_key = eosjs_ecc.privateToPublic(private_key);
-			        document.getElementById("public").innerHTML = public_key;
-			        document.getElementById("private").innerHTML = private_key;
-			    });
-			}
-
-			window.onload = genkey;
-
-		</script>
-
-
+            function genkey() {
+                eosjs_ecc.randomKey().then(x => {
+                    var private_key = x;
+                    var public_key = eosjs_ecc.privateToPublic(private_key);
+                    document.getElementById("public").innerHTML = public_key;
+                    document.getElementById("private").innerHTML = private_key;
+                });
+            }
+            window.onload = genkey;
+        </script>
     </head>
     <body>
         Public Key: <span id="public"></span><br />
-		Private Key: <span id="private"></span>
+        Private Key: <span id="private"></span>
     </body>
 </html>
